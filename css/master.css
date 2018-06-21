@@ -1,3 +1,15 @@
 body {
   font-family: "Arial", sans-serif;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.code-snippet {
+  max-width: 500px;
+  background-color: lightgrey;
+  margin: 0 auto;
+  padding: 1rem;
+}

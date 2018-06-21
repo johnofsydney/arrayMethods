@@ -9,104 +9,125 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="container">
+    <h1>Some JS Array Methods</h1>
+    <p>Working with arrays without using the standard for loop</p>
+    <h2>Open the console to see the results</h2>
+    <a href="https://github.com/johnofsydney/arrayMethods">https://github.com/johnofsydney/arrayMethods</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN Page for javascript arrays</a>
 
-  <h1>Some JS Array Methods</h1>
-  <h2>Open the console to see the results</h2>
+    <p>Here is the array I'm doing all this stuff to.</p>
 
-  <p>Here is the array I'm doing all this stuff to.</p>
-
-  <code><pre>
-    const a = [1,2,3,4,5,6,7,8,9,10];
-  </code></pre>
-
-  <p>Note that for both anonymous and named functions, we are passing an argument called element. This is a bit magic because (a) JS just knows this represents each consecutive element in the array and (b) when we use the named function version, we don't even have pass the argument to the function.</p>
-  <p>"element" is just a variable name. it could just as well be "n" or "foo" or "bar" ...</p>
-
-  <h3>Filter</h3>
-  <p>When you apply a filter to an array you get back a new array consisting of only the elements that pass the filter test.</p>
-
-  <code><pre>
-    // filter with an anonymous function
-    const b = a.filter( function(element) {
-      return (element % 2 === 0);
-    });
-    console.log(b);    // see console - main.js:8
-
-    const isEven = function (element) {
-      if (element % 2 === 0) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    // fillter using a named function
-    const c = a.filter(isEven);
-    console.log(c);    // see console - main.js:20
-  </pre></code>
+    <div class="code-snippet">
+      <code><pre>
+        const a = [1,2,3,4,5,6,7,8,9,10];
+      </code></pre>
+    </div>
 
 
-  <h3>Map</h3>
-  <p>When you apply a map to an array you get back a new array consisting of all of the elements mapped to new values.</p>
-  <code><pre>
-    // map using anonymous function
-    const d = a.map( function(element) {
-      return (element * 2);
-    });
-    console.log(d);    // see console - main.js:26
+    <p>Note that for both anonymous and named functions, we are passing an argument called element. This is a bit magic because (a) JS just knows this represents each consecutive element in the array and (b) when we use the named function version, we don't even have pass the argument to the function.</p>
+    <p>"element" is just a variable name. it could just as well be "n" or "foo" or "bar" ...</p>
 
-    // map using a named function
-    const timesBy2 = function(element) {
-      return element * 2;
-    };
+    <h3>Filter</h3>
+    <p>When you apply a filter to an array you get back a new array consisting of only the elements that pass the filter test.</p>
 
-    const e = a.map(timesBy2);
-    console.log(e);    // see console - main.js:34
-  </code></pre>
+    <div class="code-snippet">
+      <code><pre>
+        // filter with an anonymous function
+        const b = a.filter( function(element) {
+          return (element % 2 === 0);
+        });
+        console.log(b);    // see console - main.js:8
 
-  <h3>Reduce</h3>
-  <p>Reduce will crunch down your array and give you back a single value. Adding all the values in an array would be a good example.</p>
+        const isEven = function (element) {
+          if (element % 2 === 0) {
+            return true;
+          } else {
+            return false;
+          }
+        };
 
-  <pre><code>
-    // for reduce we have two arguments.
-    // The first is basically the running sum (aka the accumulator), the second is the element.
-    //
-    // reduce using anonymous function
-    const f = a.reduce( function(accumulator, element) {
-      return (accumulator + 2 * element );
-    });
-    console.log(f);    // see console - main.js:43
+        // fillter using a named function
+        const c = a.filter(isEven);
+        console.log(c);    // see console - main.js:20
+      </pre></code>
+    </div>
 
-    //reduce using named function
-    const sumStuff = function (accumulator, element) {
-      return (accumulator + 2 * element);
-    };
 
-    const g = a.reduce(sumStuff);
-    console.log(g);    // see console - main.js:51
-  </pre></code>
 
-  <h3>forEach</h3>
-  <p>forEach doesn't return anything, but rather will run code for / on each element in the array.</p>
-  <p>Note therefore that</p>
+    <h3>Map</h3>
+    <p>When you apply a map to an array you get back a new array consisting of all of the elements mapped to new values.</p>
 
-  <pre><code>
-    // forEach with Anonymous function
-    a.forEach( function (element) {
-      console.log("hello: " + (element * 2));    // see console - main.js:57
-    });
+    <div class="code-snippet">
+      <code><pre>
+        // map using anonymous function
+        const d = a.map( function(element) {
+          return (element * 2);
+        });
+        console.log(d);    // see console - main.js:26
 
-    // forEach with named function
-    const logStuff = function(element) {
-      console.log("hello: " + (timesBy2(element) ));    // see console - main.js:62
-    };
-    a.forEach( logStuff );
+        // map using a named function
+        const timesBy2 = function(element) {
+          return element * 2;
+        };
 
-    // the for / of method is very similar to forEach
-    for (let element of a) {
-      console.log(element);    // see console - main.js:68
-    }
-  </pre></code>
+        const e = a.map(timesBy2);
+        console.log(e);    // see console - main.js:34
+      </pre></code>
+    </div>
+
+
+    <h3>Reduce</h3>
+    <p>Reduce will crunch down your array and give you back a single value. Adding all the values in an array would be a good example.</p>
+
+    <div class="code-snippet">
+      <pre><code>
+        // for reduce we have two arguments.
+        // The first is basically the running sum (aka the accumulator), the second is the element.
+        //
+        // reduce using anonymous function
+        const f = a.reduce( function(accumulator, element) {
+          return (accumulator + 2 * element );
+        });
+        console.log(f);    // see console - main.js:43
+
+        //reduce using named function
+        const sumStuff = function (accumulator, element) {
+          return (accumulator + 2 * element);
+        };
+
+        const g = a.reduce(sumStuff);
+        console.log(g);    // see console - main.js:51
+      </code></pre>
+    </div>
+
+
+    <h3>forEach</h3>
+    <p>forEach doesn't return anything, but rather will run code for / on each element in the array.</p>
+    <p>Note therefore that below we are just calling these methods, and not saving the result into a variable such as const b / c / d / etc</p>
+
+    <div class="code-snippet">
+      <pre><code>
+        // forEach with Anonymous function
+        a.forEach( function (element) {
+          console.log("hello: " + (element * 2));    // see console - main.js:57
+        });
+
+        // forEach with named function
+        const logStuff = function(element) {
+          console.log("hello: " + (timesBy2(element) ));    // see console - main.js:62
+        };
+        a.forEach( logStuff );
+
+        // the for / of method is very similar to forEach
+        for (let element of a) {
+          console.log(element);    // see console - main.js:68
+        }
+      </code></pre>
+    </div>
+
+  </div>
+
 
 
 </body>
