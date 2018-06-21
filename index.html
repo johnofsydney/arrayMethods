@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="js/main.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/master.css">
   <title>Document</title>
 </head>
 <body>
@@ -15,34 +16,33 @@
   <p>Here is the array I'm doing all this stuff to.</p>
 
   <code><pre>
-    a = [1,2,3,4,5,6,7,8,9,10]
+    const a = [1,2,3,4,5,6,7,8,9,10];
   </code></pre>
 
-  <p>Note that for both anonymous and named functions, we are passing an argument called element. This is a bit magic because (a) js just knows this represents each consecutive element in the array and (b) when we use the named function version, we don't even have pass the argument to the function.</p>
-  <p>"element" is just a variable name. it could just as well be "n" or "foo" ...</p>
+  <p>Note that for both anonymous and named functions, we are passing an argument called element. This is a bit magic because (a) JS just knows this represents each consecutive element in the array and (b) when we use the named function version, we don't even have pass the argument to the function.</p>
+  <p>"element" is just a variable name. it could just as well be "n" or "foo" or "bar" ...</p>
 
   <h3>Filter</h3>
-  <p>When you apply a filter to an array you get back a new array consisting of all the elements that pass the filter test.</p>
-
+  <p>When you apply a filter to an array you get back a new array consisting of only the elements that pass the filter test.</p>
 
   <code><pre>
     // filter with an anonymous function
-    b = a.filter( function(element) {
-      return (element % 2 === 0)
-    })
-    console.log(b);    ## see console - main.js:8
+    const b = a.filter( function(element) {
+      return (element % 2 === 0);
+    });
+    console.log(b);    // see console - main.js:8
 
     const isEven = function (element) {
       if (element % 2 === 0) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    };
 
     // fillter using a named function
-    c = a.filter(isEven)
-    console.log(c);    ## see console - main.js:20
+    const c = a.filter(isEven);
+    console.log(c);    // see console - main.js:20
   </pre></code>
 
 
@@ -50,18 +50,18 @@
   <p>When you apply a map to an array you get back a new array consisting of all of the elements mapped to new values.</p>
   <code><pre>
     // map using anonymous function
-    d = a.map( function(element) {
-      return (element * 2)
-    })
-    console.log(d);    ## see console - main.js:26
-
-    const timesBy2 = function(element) {
-      return (element * 2)
-    }
+    const d = a.map( function(element) {
+      return (element * 2);
+    });
+    console.log(d);    // see console - main.js:26
 
     // map using a named function
-    e = a.map(timesBy2)
-    console.log(e);    ## see console - main.js:34
+    const timesBy2 = function(element) {
+      return element * 2;
+    };
+
+    const e = a.map(timesBy2);
+    console.log(e);    // see console - main.js:34
   </code></pre>
 
   <h3>Reduce</h3>
@@ -69,36 +69,43 @@
 
   <pre><code>
     // for reduce we have two arguments.
-    // The first is basically the running sum, the second is the element.
-    // reduce using anonymous fucxtion
-    f = a.reduce( function(accumulator, element) {
-      return (accumulator + 2 * element )
-    })
-    console.log(f);    ## see console - main.js:42
-
-    const sumStuff = function (accumulator, element) {
-      return (accumulator + 2 * element)
-    };
+    // The first is basically the running sum (aka the accumulator), the second is the element.
+    //
+    // reduce using anonymous function
+    const f = a.reduce( function(accumulator, element) {
+      return (accumulator + 2 * element );
+    });
+    console.log(f);    // see console - main.js:43
 
     //reduce using named function
-    g = a.reduce(sumStuff)
-    console.log(g);    ## see console - main.js:50
+    const sumStuff = function (accumulator, element) {
+      return (accumulator + 2 * element);
+    };
+
+    const g = a.reduce(sumStuff);
+    console.log(g);    // see console - main.js:51
   </pre></code>
 
   <h3>forEach</h3>
   <p>forEach doesn't return anything, but rather will run code for / on each element in the array.</p>
+  <p>Note therefore that</p>
 
   <pre><code>
     // forEach with Anonymous function
-    h = a.forEach( function (element) {
-      console.log("hello: " + (element * 2));    ## see console - main.js:56
-    })
+    a.forEach( function (element) {
+      console.log("hello: " + (element * 2));    // see console - main.js:57
+    });
 
     // forEach with named function
     const logStuff = function(element) {
-      console.log("hello: " + (element * 2));    ## see console - main.js:61
+      console.log("hello: " + (timesBy2(element) ));    // see console - main.js:62
+    };
+    a.forEach( logStuff );
+
+    // the for / of method is very similar to forEach
+    for (let element of a) {
+      console.log(element);    // see console - main.js:68
     }
-    k = a.forEach( logStuff )
   </pre></code>
 
 
