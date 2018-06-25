@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
   <link rel="stylesheet" href="css/master.css">
   <title>Document</title>
@@ -12,6 +13,9 @@
   <div class="container">
     <h1>Some JS Array Methods</h1>
     <p>Working with arrays without using the standard for loop</p>
+
+    <img id="emoji" src="images/emoji-methods.png" />
+
     <h2>Open the console to see the results</h2>
     <a href="https://github.com/johnofsydney/arrayMethods">https://github.com/johnofsydney/arrayMethods</a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN Page for javascript arrays</a>
@@ -33,23 +37,23 @@
 
     <div class="code-snippet">
       <code><pre>
-        // filter with an anonymous function
-        const b = a.filter( function(element) {
-          return (element % 2 === 0);
-        });
-        console.log(b);    // see console - main.js:8
+// filter with an anonymous function
+const b = a.filter( function(element) {
+  return (element % 2 === 0);
+});
+console.log(b);    // see console - main.js:8
 
-        const isEven = function (element) {
-          if (element % 2 === 0) {
-            return true;
-          } else {
-            return false;
-          }
-        };
+const isEven = function (element) {
+  if (element % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-        // fillter using a named function
-        const c = a.filter(isEven);
-        console.log(c);    // see console - main.js:20
+// fillter using a named function
+const c = a.filter(isEven);
+console.log(c);    // see console - main.js:20
       </pre></code>
     </div>
 
@@ -60,19 +64,19 @@
 
     <div class="code-snippet">
       <code><pre>
-        // map using anonymous function
-        const d = a.map( function(element) {
-          return (element * 2);
-        });
-        console.log(d);    // see console - main.js:26
+// map using anonymous function
+const d = a.map( function(element) {
+  return (element * 2);
+});
+console.log(d);    // see console - main.js:26
 
-        // map using a named function
-        const timesBy2 = function(element) {
-          return element * 2;
-        };
+// map using a named function
+const timesBy2 = function(element) {
+  return element * 2;
+};
 
-        const e = a.map(timesBy2);
-        console.log(e);    // see console - main.js:34
+const e = a.map(timesBy2);
+console.log(e);    // see console - main.js:34
       </pre></code>
     </div>
 
@@ -82,22 +86,22 @@
 
     <div class="code-snippet">
       <pre><code>
-        // for reduce we have two arguments.
-        // The first is basically the running sum (aka the accumulator), the second is the element.
-        //
-        // reduce using anonymous function
-        const f = a.reduce( function(accumulator, element) {
-          return (accumulator + 2 * element );
-        });
-        console.log(f);    // see console - main.js:43
+// for reduce we have two arguments.
+// The first is basically the running sum (aka the accumulator), the second is the element.
+//
+// reduce using anonymous function
+const f = a.reduce( function(accumulator, element) {
+  return (accumulator + 2 * element );
+});
+console.log(f);    // see console - main.js:43
 
-        //reduce using named function
-        const sumStuff = function (accumulator, element) {
-          return (accumulator + 2 * element);
-        };
+//reduce using named function
+const sumStuff = function (accumulator, element) {
+  return (accumulator + 2 * element);
+};
 
-        const g = a.reduce(sumStuff);
-        console.log(g);    // see console - main.js:51
+const g = a.reduce(sumStuff);
+console.log(g);    // see console - main.js:51
       </code></pre>
     </div>
 
@@ -108,21 +112,29 @@
 
     <div class="code-snippet">
       <pre><code>
-        // forEach with Anonymous function
-        a.forEach( function (element) {
-          console.log("hello: " + (element * 2));    // see console - main.js:57
-        });
+// forEach with Anonymous function
+a.forEach( function (element) {
+  console.log("hello: " + (element * 2));    // see console - main.js:57
+});
 
-        // forEach with named function
-        const logStuff = function(element) {
-          console.log("hello: " + (timesBy2(element) ));    // see console - main.js:62
-        };
-        a.forEach( logStuff );
+// forEach with named function
+const logStuff = function(element) {
+  console.log("hello: " + (timesBy2(element) ));    // see console - main.js:62
+};
+a.forEach( logStuff );
 
-        // the for / of method is very similar to forEach
-        for (let element of a) {
-          console.log(element);    // see console - main.js:68
-        }
+// the for / of method is very similar to forEach
+for (let element of a) {
+  console.log(element);    // see console - main.js:68
+}
+
+<div class="jq-text">
+// the jQuery version would typically be used for DOM nodes I guess, but here we can see it used on our array a. Note that with the jQuery version we have access to "this"
+$(a).each( function() {
+    console.log(this.valueOf() );    // see console - main.js:73
+})
+</div>
+
       </code></pre>
     </div>
 

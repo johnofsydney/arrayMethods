@@ -8,8 +8,21 @@ body {
 }
 
 .code-snippet {
-  max-width: 500px;
+  max-width: 800px;
   background-color: lightgrey;
   margin: 0 auto;
   padding: 1rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.jq-text {
+  color: blue;
+}
+
+#emoji {
+  width: 400px;
 }

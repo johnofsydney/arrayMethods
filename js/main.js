@@ -67,3 +67,8 @@ a.forEach( logStuff );
 for (let element of a) {
   console.log(element);    // see console - main.js:68
 }
+
+// jQuery version .each :
+$(a).each( function() {
+    console.log(this.valueOf() )
+})
