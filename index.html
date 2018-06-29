@@ -142,8 +142,51 @@ $(a).each( function() {
       </code></pre>
     </div>
 
-  </div>
 
+    <h3>some</h3>
+    <p>.some() will return true if any of the elements of the array pass the test, false if none pass</p>
+
+    <div class="code-snippet">
+      <pre><code>
+// some with Anonymous function
+const m = a.some( function(element) {
+  return ( element > 5 )
+})
+console.log(m);    // see console - main.js:79
+
+// some with named function
+const isGreaterThanFive = function(num) {
+  return (( num > 5 ) ? true : false )
+}
+
+const p = a.some( isGreaterThanFive )
+console.log(p);    // see console - main.js:86
+
+      </code></pre>
+    </div>
+
+
+    <h3>every</h3>
+    <p>.every() will return true if all of the elements of the array pass the test, false if any of them fail</p>
+
+    <div class="code-snippet">
+      <pre><code>
+// every with Anonymous function
+const r = a.every( function(element) {
+  return ( element > 5)
+});
+console.log(r);    // see console main.js:91
+
+// every with named function
+const s = a.every( isGreaterThanFive )
+console.log(s);    // see console main.js:94
+
+      </code></pre>
+    </div>
+
+
+
+  </div>  <!-- end of .container -->
 
 
 </body>

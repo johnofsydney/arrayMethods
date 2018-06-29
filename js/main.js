@@ -72,3 +72,23 @@ for (let element of a) {
 $(a).each( function() {
     console.log(this.valueOf() )
 })
+
+const m = a.some( function(element) {
+  return ( element > 5 )
+})
+console.log(m);    // see console - main.js:79
+
+const isGreaterThanFive = function(num) {
+  return (( num > 5 ) ? true : false )
+}
+
+const p = a.some( isGreaterThanFive )
+console.log(p);    // see console - main.js:86
+
+const r = a.every( function(element) {
+  return ( element > 5)
+});
+console.log(r);    // see console main.js:91
+
+const s = a.every( isGreaterThanFive )
+console.log(s);    // see console main.js:94
